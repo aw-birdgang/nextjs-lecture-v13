@@ -7,5 +7,6 @@ export const exo2 = Exo_2({
 
 export const orbitron = Orbitron({
     subsets: ['latin'],
+    // Custom Tailwind Font
     variable: '--font-orbitron',
 });

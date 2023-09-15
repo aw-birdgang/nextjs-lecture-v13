@@ -21,6 +21,33 @@ https://nextjs.org/docs/app/building-your-application/styling/tailwind-css
 
 ```
 
+# api
+```bash
+https://nextjs.org/docs/app/api-reference/file-conventions/metadata
+https://nextjs.org/docs/app/api-reference/functions/generate-metadata#basic-fields
+
+```
+https://nextjs.org/docs/app/api-reference/functions/generate-metadata#basic-fields
+
+# Optimizing
+```bash
+
+https://nextjs.org/docs/app/building-your-application/optimizing/fonts
+
+```
+
+
+
+# Deploying
+```bash
+
+npx run build
+npx serve@latest out
+
+https://nextjs.org/docs/app/building-your-application/deploying/static-exports
+
+```
+
 
 # style
 ```bash
@@ -34,5 +61,36 @@ https://tailwindcss.com/docs/installation
 
 https://tailwindcss.com/docs/customizing-colors
 
+
+https://tailwindcss.com/docs/font-family
+
+https://tailwindcss.com/docs/responsive-design
+
+
+```
+
+
+
+# tailwind core
+```bash
+
+https://tailwindcss.com/docs/responsive-design
+
+
+```
+
+# tailwind Official Plugins
+```bash
+
+https://tailwindcss.com/docs/typography-plugin
+
+
+```
+
+
+# ref
+```bash
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
 ```
