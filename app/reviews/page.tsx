@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from "next/link";
 import Heading from "@/components/Heading";
 import PaginationBar from '@/components/PaginationBar';
-import {getReviews} from '@/lib/reviews';
+import { getReviews, getSearchableReviews } from '@/lib/reviews';
 import SearchBox from "@/components/SearchBox";
 
 interface ReviewsPageProps {
@@ -19,6 +19,7 @@ const PAGE_SIZE = 3;
 export default async function ReviewsPage({ searchParams }: ReviewsPageProps) {
     const page = parsePageParam(searchParams.page);
     const { reviews, pageCount } = await getReviews(PAGE_SIZE, page);
+    const searchableReviews = await getSearchableReviews();
     console.log('[ReviewsPage] rendering:', page);
 
     return (
@@ -26,7 +27,7 @@ export default async function ReviewsPage({ searchParams }: ReviewsPageProps) {
             <Heading>Reviews</Heading>
             <div className="flex justify-between pb-3">
                 <PaginationBar href="/reviews" page={page} pageCount={pageCount} />
-                <SearchBox />
+                <SearchBox reviews={searchableReviews} />
             </div>
             <ul className="flex flex-row flex-wrap gap-3">
                 {reviews.map((review, index) => (
