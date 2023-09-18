@@ -113,6 +113,7 @@ https://nextjs.org/docs/messages/react-hydration-error
 
 
 
+
 # tailwind core
 ```bash
 
@@ -144,3 +145,15 @@ https://headlessui.com/react/combobox
 https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 
 ```
+
+
+
+
+
+# api
+```bash
+http://localhost:3000/api/search?query=st
+
+```
+
+
