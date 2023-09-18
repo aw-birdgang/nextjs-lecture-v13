@@ -56,6 +56,12 @@ https://nextjs.org/docs/app/api-reference/components/image#loaderfile
 
 ```
 
+# File Conventions
+```bash
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#options
+
+```
 
 
 # Deploying

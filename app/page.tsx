@@ -4,6 +4,9 @@ import Heading from '@/components/Heading';
 import { getFeaturedReview } from '@/lib/reviews';
 import { getReviews } from '@/lib/reviews';
 
+// 'auto' | 'force-dynamic' | 'error' | 'force-static'
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
     // const review = await getFeaturedReview();
     const reviews = await getReviews(3);
