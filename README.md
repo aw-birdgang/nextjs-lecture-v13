@@ -43,6 +43,7 @@ https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 ```
 
 
+
 # Configuring
 ```bash
 
@@ -98,6 +99,15 @@ https://tailwindcss.com/docs/font-family
 
 https://tailwindcss.com/docs/responsive-design
 
+
+```
+
+
+
+# Others
+```bash
+
+https://nextjs.org/docs/messages/react-hydration-error
 
 ```
 
