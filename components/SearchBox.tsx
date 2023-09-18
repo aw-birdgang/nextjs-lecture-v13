@@ -13,12 +13,15 @@ export default function SearchBox() {
     const [reviews, setReviews] = useState<SearchableReview[]>([]);
     useEffect(() => {
         if (query.length > 1) {
+            const controller = new AbortController();
             (async () => {
-                const response = await fetch('/api/search?query='
-                    + encodeURIComponent(query));
+                const url = '/api/search?query=' + encodeURIComponent(query);
+                console.log('searchBox : ' + url)
+                const response = await fetch(url, { signal: controller.signal });
                 const reviews = await response.json();
                 setReviews(reviews);
             })();
+            return () => controller.abort();
         } else {
             setReviews([]);
         }
@@ -46,8 +49,8 @@ export default function SearchBox() {
                                 <span className={`block px-2 truncate w-full ${
                                     active ? 'bg-orange-100' : ''
                                 }`}>
-                                {review.title}
-                                </span>
+                  {review.title}
+                </span>
                             )}
                         </Combobox.Option>
                     ))}
