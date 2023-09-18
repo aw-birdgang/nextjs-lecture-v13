@@ -1,4 +1,3 @@
-import {readdir} from 'node:fs/promises';
 import {marked} from 'marked';
 import qs from 'qs';
 
@@ -21,7 +20,7 @@ export interface FullReview extends Review {
 }
 
 export async function getFeaturedReview(): Promise<Review> {
-    const reviews = await getReviews();
+    const reviews = await getReviews(6);
     return reviews[0];
 }
 
@@ -39,12 +38,12 @@ export async function getReview(slug: string): Promise<FullReview> {
     };
 }
 
-export async function getReviews(): Promise<Review[]> {
+export async function getReviews(pageSize: number): Promise<Review[]> {
     const { data } = await fetchReviews({
         fields: ['slug', 'title', 'subtitle', 'publishedAt'],
         populate: { image: { fields: ['url'] } },
         sort: ['publishedAt:desc'],
-        pagination: { pageSize: 6 },
+        pagination: { pageSize },
     });
     return data.map(toReview);
 }
