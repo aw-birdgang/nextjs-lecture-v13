@@ -22,15 +22,12 @@ export interface FullReview extends Review {
     body: string;
 }
 
-export async function getFeaturedReview(): Promise<Review> {
-    const reviews = await getReviews(6);
-    return reviews[0];
-}
-
 export interface PaginatedReviews {
     pageCount: number;
     reviews: Review[];
 }
+
+export type SearchableReview = Pick<Review, 'slug' | 'title'>;
 
 export async function getReview(slug: string): Promise<FullReview | null> {
     const { data } = await fetchReviews({
@@ -39,7 +36,6 @@ export async function getReview(slug: string): Promise<FullReview | null> {
         populate: { image: { fields: ['url'] } },
         pagination: { pageSize: 1, withCount: false },
     });
-
     if (data.length === 0) {
         return null;
     }
@@ -64,9 +60,6 @@ export async function getReviews(pageSize: number, page?: number): Promise<Pagin
 }
 
 export async function getSlugs(): Promise<string[]> {
-    // const files = await readdir('./content/reviews');
-    // return files.filter((file) => file.endsWith('.md'))
-    //     .map((file) => file.slice(0, -'.md'.length));
     const { data } = await fetchReviews({
         fields: ['slug'],
         sort: ['publishedAt:desc'],
@@ -77,7 +70,7 @@ export async function getSlugs(): Promise<string[]> {
 
 async function fetchReviews(parameters: any) {
     const url = `${CMS_URL}/api/reviews?`
-        + qs.stringify(parameters, { encodeValuesOnly: false });
+        + qs.stringify(parameters, { encodeValuesOnly: true });
     // console.log('[fetchReviews]:', url);
     const response = await fetch(url, {
         next: {
