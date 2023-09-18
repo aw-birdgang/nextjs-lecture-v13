@@ -37,6 +37,19 @@ https://nextjs.org/docs/app/building-your-application/optimizing/fonts
 ```
 
 
+# Configuring
+```bash
+
+
+https://nextjs.org/docs/app/building-your-application/configuring/eslint
+
+npm install --save-dev eslint eslint-config-next
+npm audit
+
+```
+
+
+
 
 # Deploying
 ```bash
