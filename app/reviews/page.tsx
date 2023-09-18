@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 
 export default async function ReviewsPage() {
     const reviews = await getReviews(6);
-    console.log('[ReviewsPage] reviews:', reviews);
-
+    console.log('[ReviewsPage] rendering:', reviews.map((review) => review.slug).join(', '));
     return (
         <>
             <Heading>Reviews</Heading>
