@@ -9,7 +9,7 @@ import { getReviews } from '@/lib/reviews';
 
 export default async function HomePage() {
     // const review = await getFeaturedReview();
-    const reviews = await getReviews(3);
+    const reviews = await getReviews(6);
     console.log('[HomePage] rendering:', reviews.map((review) => review.slug).join(', '));
     return (
         <>

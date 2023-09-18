@@ -1,6 +1,8 @@
 import {marked} from 'marked';
 import qs from 'qs';
 
+export const CACHE_TAG_REVIEWS = 'reviews';
+
 const CMS_URL = 'http://localhost:1337';
 
 interface CmsItem {
@@ -25,7 +27,7 @@ export async function getFeaturedReview(): Promise<Review> {
     return reviews[0];
 }
 
-export async function getReview(slug: string) {
+export async function getReview(slug: string): Promise<FullReview | null> {
     const { data } = await fetchReviews({
         filters: { slug: { $eq: slug } },
         fields: ['slug', 'title', 'subtitle', 'publishedAt', 'body'],
@@ -71,7 +73,7 @@ async function fetchReviews(parameters: any) {
     // console.log('[fetchReviews]:', url);
     const response = await fetch(url, {
         next: {
-            revalidate: 30, // seconds
+            tags: [CACHE_TAG_REVIEWS],
         },
     });
     if (!response.ok) {
