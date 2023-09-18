@@ -49,6 +49,13 @@ npm audit
 ```
 
 
+# Components
+```bash
+
+https://nextjs.org/docs/app/api-reference/components/image#loaderfile
+
+```
+
 
 
 # Deploying
