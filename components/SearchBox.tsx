@@ -5,11 +5,6 @@ import { Combobox } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useIsClient } from '@/lib/hooks';
-import { searchReviews } from '@/lib/reviews';
-
-export interface SearchBoxProps {
-    reviews: SearchableReview[];
-}
 
 export default function SearchBox() {
     const router = useRouter();
@@ -19,7 +14,9 @@ export default function SearchBox() {
     useEffect(() => {
         if (query.length > 1) {
             (async () => {
-                const reviews = await searchReviews(query);
+                const response = await fetch('/api/search?query='
+                    + encodeURIComponent(query));
+                const reviews = await response.json();
                 setReviews(reviews);
             })();
         } else {
@@ -49,8 +46,8 @@ export default function SearchBox() {
                                 <span className={`block px-2 truncate w-full ${
                                     active ? 'bg-orange-100' : ''
                                 }`}>
-                  {review.title}
-                </span>
+                                {review.title}
+                                </span>
                             )}
                         </Combobox.Option>
                     ))}

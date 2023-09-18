@@ -1,4 +1,6 @@
-import {marked} from 'marked';
+import 'server-only';
+
+import { marked } from 'marked';
 import qs from 'qs';
 
 export const CACHE_TAG_REVIEWS = 'reviews';
