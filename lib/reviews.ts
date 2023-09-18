@@ -59,6 +59,19 @@ export async function getReviews(pageSize: number, page?: number): Promise<Pagin
     };
 }
 
+export async function searchReviews(query: string): Promise<SearchableReview[]> {
+    const { data } = await fetchReviews({
+        filters: { title: { $containsi: query } },
+        fields: ['slug', 'title'],
+        sort: ['title'],
+        pagination: { pageSize: 5 },
+    });
+    return data.map(({ attributes }) => ({
+        slug: attributes.slug,
+        title: attributes.title,
+    }));
+}
+
 export async function getSearchableReviews(): Promise<SearchableReview[]> {
     const { data } = await fetchReviews({
         fields: ['slug', 'title'],
