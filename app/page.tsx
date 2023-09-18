@@ -5,7 +5,8 @@ import { getFeaturedReview } from '@/lib/reviews';
 import { getReviews } from '@/lib/reviews';
 
 // 'auto' | 'force-dynamic' | 'error' | 'force-static'
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
+export const revalidate = 30; // seconds
 
 export default async function HomePage() {
     // const review = await getFeaturedReview();

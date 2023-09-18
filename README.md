@@ -1,6 +1,4 @@
 
-
-
 # doc
 ```bash
 
@@ -27,7 +25,15 @@ https://nextjs.org/docs/app/api-reference/file-conventions/metadata
 https://nextjs.org/docs/app/api-reference/functions/generate-metadata#basic-fields
 
 ```
-https://nextjs.org/docs/app/api-reference/functions/generate-metadata#basic-fields
+
+
+
+# data fetching
+```bash
+https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#time-based-revalidation
+
+```
+
 
 # Optimizing
 ```bash

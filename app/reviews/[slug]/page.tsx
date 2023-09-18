@@ -13,7 +13,7 @@ interface ReviewPageProps {
     params: { slug: string };
 }
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export async function generateStaticParams(): Promise<ReviewPageParams[]> {
     const slugs = await getSlugs();
